@@ -1,5 +1,13 @@
-td input, td textarea{
-    width: 100%;
+/*Remove input[type="number"] arrows*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 *{
@@ -10,7 +18,11 @@ td input, td textarea{
 body{
     background-color: #1b1b1b;
     width: 40%;
-    margin: auto;
+    margin: 0 auto;
+}
+
+td input, td textarea{
+    width: 100%;
 }
 
 th, td{
@@ -18,7 +30,7 @@ th, td{
     padding-right: 10px;
 }
 
-a, label, li, i, b {
+a, label, li {
     color: #fff;
 }
 
@@ -64,33 +76,45 @@ a:hover{
     color: #ffa31a;
 }
 
-#cart table, #cart th, #cart td{
+.cart table, .cart th, .cart td{
     /*border: 1px solid #808080;*/
     border-collapse: collapse;
 }
 
-#cart td{
+.cart td{
     border-top: 1px solid #808080;
 }
 
-#cart tr:hover{
+.cart tr:hover{
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-#cart th{
+.cart th{
     background-color: #2b2b2b;
     text-align: left;
 }
 
-#cart table {
+.cart table {
     width: 100%;
     border: #808080;
 }
 
-#contact-info table {
+.contact-info table {
     width: 100%;
 }
 
-#contact-info input, #contact-info textarea{
+.contact-info input, .contact-info textarea{
     margin-bottom: 20px;
+}
+
+.total-row{
+    background-color: #2b2b2b;
+}
+
+.total-row i{
+    color: #ffa31a;
+}
+
+.total-row:hover{
+    background-color: rgba(0, 0, 0, 0);
 }

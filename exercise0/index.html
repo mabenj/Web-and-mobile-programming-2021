@@ -9,36 +9,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet"> 
   </head>
   <body>
-    <div id="cart">
-        <h1>Ostoskori</h1>
+    <div class="cart">
+        <h1>Ostoskori <img src="computer.gif" alt="tietsikka" width="50"></h1>
         <table>
             <tr>
                 <th colspan="2">Tuote</th>
-                <th>Hinta ($)</th>
+                <th>Hinta</th>
             </tr>
+
             <tr>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/613rrhRTmEL._AC_SL1200_.jpg" alt="Tuote Tuotteinen" width="50"></td>
-                <td><a href="https://www.amazon.com/Archie-McPhee-12698-Handi-Squirrel/dp/B06XXQD54H" target="_blank">Orava Oravainen</a></td>
-                <td><i>12.24</i></td>
+                <td>
+                    <a href="https://www.amazon.com/Archie-McPhee-12698-Handi-Squirrel/dp/B06XXQD54H" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/613rrhRTmEL._AC_SL1200_.jpg" alt="orava" width="50">
+                    </a>                    
+                </td>
+                <td>
+                    <a href="https://www.amazon.com/Archie-McPhee-12698-Handi-Squirrel/dp/B06XXQD54H" target="_blank">Orava Oravainen</a>
+                </td>
+                <td>
+                    <i>$12.24</i>
+                </td>
             </tr>
+
             <tr>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/714V8MHq-4L._AC_SL1500_.jpg" alt="Trumppi" width="50"></td>
-                <td><a href="https://www.amazon.com/Chia-Decorative-Pottery-Planter-Occasion/dp/B01G988ZRG" target="_blank">Trump-tukka</a></td>
-                <td><i>24.51</i></td>
+                <td>
+                    <a href="https://www.amazon.com/Chia-Decorative-Pottery-Planter-Occasion/dp/B01G988ZRG" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/714V8MHq-4L._AC_SL1500_.jpg" alt="Trump" width="50">
+                    </a>                    
+                </td>
+                <td>
+                    <a href="https://www.amazon.com/Chia-Decorative-Pottery-Planter-Occasion/dp/B01G988ZRG" target="_blank">Trump-tukka</a>
+                </td>
+                <td>
+                    <i>$24.51</i>
+                </td>
             </tr>
+
             <tr>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/61BudurJUGL._AC_UY625_.jpg" alt="Nurtsisandaalit" width="50"></td>
-                <td><a href="https://www.amazon.com/Grass-Flip-Flops-Black-Green/dp/B00JLWHVEQ" target="_blank">Nurtsi™-sandaalit</a></td>
-                <td><i>16.91</i></td>
+                <td>
+                    <a href="https://www.amazon.com/Grass-Flip-Flops-Black-Green/dp/B00JLWHVEQ" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/61BudurJUGL._AC_UY625_.jpg" alt="Nurtsisandaalit" width="50">                
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.amazon.com/Grass-Flip-Flops-Black-Green/dp/B00JLWHVEQ" target="_blank">Nurtsi™-sandaalit</a>
+                </td>
+                <td>
+                    <i>$16.91</i>
+                </td>
             </tr>
+
             <tr>
-                <td><img src="https://www.varusteleka.fi/pictures/7449.jpg" alt="kommando-housut" width="50"></td>
-                <td><a href="https://www.varusteleka.fi/fi/product/ruotsalaiset-kommando-alushousut-laivaston-malli-ylijaama/7449" target="_blank">Ruotsalaiset "Kommando" alushousut</a></td>
-                <td><i>7.99</i></td>
+                <td>
+                    <a href="https://www.varusteleka.fi/fi/product/ruotsalaiset-kommando-alushousut-laivaston-malli-ylijaama/7449" target="_blank">
+                        <img src="https://www.varusteleka.fi/pictures/7449.jpg" alt="kommando-housut" width="50">
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.varusteleka.fi/fi/product/ruotsalaiset-kommando-alushousut-laivaston-malli-ylijaama/7449" target="_blank">Ruotsalaiset "Kommando" alushousut</a>
+                </td>
+                <td>
+                    <i>$7.99</i>
+                </td>
             </tr>
-            <tr>
+            <tr class="total-row">
                 <td colspan="2"><b>Yhteensä:</b></td>
-                <td><i>234.87</i></td>
+                <td><i>$234.87</i></td>
             </tr>
         </table>
     </div>  
@@ -49,17 +85,17 @@
         <li>10 vuoden takuu</li>
     </ul>
 
-    <div id="contact-info">
+    <div class="contact-info">
         <h2>Täytä toimitustiedot</h2>
         <form action="">
             <table>
                 <tr>
-                    <td><label for="f-name">Etunimi</label></td>
-                    <td><label for="l-name">Sukunimi</label></td>
+                    <td><label for="fname">Etunimi</label></td>
+                    <td><label for="lname">Sukunimi</label></td>
                 </tr>
                 <tr>
-                   <td><input type="text" id="f-name" name="f-name" placeholder="Pakollinen" required ></td> 
-                   <td><input type="text" id="l-name" name="l-name" placeholder="Pakollinen" required></td> 
+                   <td><input type="text" id="fname" name="fname" placeholder="Pakollinen" required ></td> 
+                   <td><input type="text" id="lname" name="lname" placeholder="Pakollinen" required></td> 
                 </tr>
     
                 <tr>
