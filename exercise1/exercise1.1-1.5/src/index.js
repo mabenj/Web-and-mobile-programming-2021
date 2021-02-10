@@ -1,52 +1,53 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-const Header = (props) => {
-  return <h1>{props.title}</h1>
-}
-
-const Contents = (props) => {
-  return (
-    <div>
-      <Entry contact={props.contacts[0]} />
-      <Entry contact={props.contacts[1]} />
-      <Entry contact={props.contacts[2]} />
-    </div>
-  )
-}
-
-const Entry = (props) => {
-  return <p>{props.contact.name} {props.contact.phonenumber}</p>
-}
+import React from "react";
+import ReactDOM from "react-dom";
 
 const App = () => {
-  const phonebookapp = {
-    title: 'Superadvanced web phonebook app',
-    contacts: [
-      {
-        name: 'John Doe',
-        phonenumber: '358401234567'
-      },
-      {
-        name: 'Jane Doe',
-        phonenumber: '44551234567'
-      },
-      {
-        name: 'Foo bar',
-        phonenumber: '000'
-      }
-    ]
-  }
+	const phonebookapp = {
+		title: "Superadvanced web phonebook app",
+		contacts: [
+			{
+				name: "John Doe",
+				phonenumber: "358401234567"
+			},
+			{
+				name: "Jane Doe",
+				phonenumber: "44551234567"
+			},
+			{
+				name: "Foo bar",
+				phonenumber: "000"
+			}
+		]
+	};
 
-  return (
-    <div>
-      <Header title={phonebookapp.title} />
-      <Contents contacts={phonebookapp.contacts} />
-    </div>
-  )
-}
+	return (
+		<div>
+			<Header title={phonebookapp.title} />
+			<Contents contacts={phonebookapp.contacts} />
+		</div>
+	);
+};
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+const Header = ({ title }) => {
+	return <h1>{title}</h1>;
+};
+
+const Contents = ({ contacts }) => {
+	return (
+		<div>
+			{contacts.map((contact) => (
+				<Entry contact={contact}></Entry>
+			))}
+		</div>
+	);
+};
+
+const Entry = ({ contact }) => {
+	return (
+		<p>
+			{contact.name} {contact.phonenumber}
+		</p>
+	);
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));

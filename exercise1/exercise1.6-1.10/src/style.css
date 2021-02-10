@@ -4,12 +4,12 @@
 
 body{
     background: rgb(255,205,112);
-    background: linear-gradient(90deg,
+    background: linear-gradient(45deg,
      rgba(255,205,112,1) 0%,
       rgba(255,178,178,1) 41%,
        rgba(240,185,255,1) 54%,
         rgba(175,251,255,1) 100%);
-}
+} 
 
 button{
     padding: 10px;
