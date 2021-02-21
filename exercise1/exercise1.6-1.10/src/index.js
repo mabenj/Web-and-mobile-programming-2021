@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./style.css";
+import "./index.css";
 
 class App extends React.Component {
 	constructor() {
@@ -31,7 +31,6 @@ class App extends React.Component {
 	};
 
 	updateFeedbackAverage = () => {
-		//debugger
 		let sum = this.state.good * 1 + this.state.bad * -1;
 		let n = this.state.good + this.state.neutral + this.state.bad;
 		this.setState({ average: n !== 0 ? (sum / n).toFixed(2) : 0 });

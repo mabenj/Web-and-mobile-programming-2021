@@ -1,7 +1,7 @@
 import React from "react";
-import reminderService from "./services/reminderService";
-import Reminder from "./components/Reminder";
-import AddReminderForm from "./components/AddReminderForm";
+import reminderService from "../services/reminderService";
+import Reminder from "./Reminder";
+import AddReminderForm from "./AddReminderForm";
 
 class App extends React.Component {
 	constructor(props) {
