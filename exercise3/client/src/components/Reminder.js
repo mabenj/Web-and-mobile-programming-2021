@@ -5,10 +5,12 @@ const Reminder = ({ reminder, deletionHandler }) => {
 	const timestampString = `${timestamp.toLocaleString()}`;
 	return (
 		<tr>
-			<td style={{ width: "1px", whiteSpace: "nowrap", color: "grey" }}>
+			<td className="timestamp">
 				<i>{timestampString}</i>
 			</td>
-			<td>{reminder.name}</td>
+			<td style={{ width: "300px" }}>
+				<p style={{ wordBreak: "break-all" }}>{reminder.name}</p>
+			</td>
 			<td>
 				<button className="delete-btn" onClick={() => deletionHandler(reminder.id)}>
 					Poista

@@ -74,7 +74,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<>
+			<div className="container">
 				<h2>Lisää muistutus</h2>
 				<AddReminderForm
 					submitHandler={this.addReminder}
@@ -84,14 +84,14 @@ class App extends React.Component {
 					dateValue={this.state.newDate}
 				/>
 				<h2>Muistutukset</h2>
-				<table style={{ width: "500px" }}>
+				<table>
 					<tbody>
 						{this.state.reminders.map((reminder) => (
 							<Reminder key={reminder.id} reminder={reminder} deletionHandler={this.onReminderDelete} />
 						))}
 					</tbody>
 				</table>
-			</>
+			</div>
 		);
 	}
 }

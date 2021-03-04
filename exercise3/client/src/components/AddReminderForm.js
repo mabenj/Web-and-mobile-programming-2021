@@ -6,13 +6,13 @@ const AddReminderForm = ({ submitHandler, nameChangeHandler, dateChangeHandler, 
 			<table>
 				<tbody>
 					<tr>
-						<td>Aihe:</td>
+						<td>Aihe</td>
 						<td>
 							<input value={nameValue} onChange={nameChangeHandler} />
 						</td>
 					</tr>
 					<tr>
-						<td>Päivämäärä:</td>
+						<td>Päivämäärä</td>
 						<td>
 							<input value={dateValue} onChange={dateChangeHandler} type="datetime-local" />
 						</td>

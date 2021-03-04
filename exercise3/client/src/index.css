@@ -1,16 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+:root {
+	--dimmed-text: rgb(90, 90, 90);
+}
+
 * {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 
 body {
-	background-color: #b2d0da;
+	background: rgb(238, 211, 174);
+	background: radial-gradient(
+		circle,
+		rgba(238, 211, 174, 1) 0%,
+		rgba(217, 192, 221, 1) 46%,
+		rgba(148, 213, 233, 1) 100%
+	);
+}
+
+input {
+	color: var(--dimmed-text);
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #808080;
 }
 
 button {
 	border: none;
-	padding: 10px;
+	border-radius: 10px;
+	padding: 7px;
+}
+
+td {
+	padding: 3px 10px 3px 10px;
+}
+
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	padding: 40px;
+	background-color: rgba(56, 56, 56, 0.2);
+	border-radius: 25px;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
 }
 
 .delete-btn {
 	background-color: #ff9999;
+}
+
+.timestamp {
+	width: 1px;
+	white-space: nowrap;
+	color: var(--dimmed-text);
 }
