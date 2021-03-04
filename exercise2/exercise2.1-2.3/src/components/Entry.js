@@ -3,8 +3,8 @@ import React from "react";
 const Entry = ({ contact }) => {
 	return (
 		<tr>
-            <td>Name: {contact.name}</td>
-            <td>Number: {contact.phonenumber}</td>
+			<td style={{ paddingRight: "25px" }}>Name: {contact.name}</td>
+			<td style={{ paddingLeft: "25px" }}>Number: {contact.phonenumber}</td>
 		</tr>
 	);
 };
