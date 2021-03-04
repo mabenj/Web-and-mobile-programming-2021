@@ -10,7 +10,9 @@ const CLUSTER_ADDRESS = process.env.MONGO_CLUSTER_ADDRESS;
 const DB_NAME = process.env.MONGO_DB_NAME;
 
 const CONNECTION_STRING = `mongodb+srv://${USERNAME}:${PASSWORD}@${CLUSTER_ADDRESS}/${DB_NAME}`;
-mongoose.connect(CONNECTION_STRING);
+mongoose
+	.connect(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
+	.catch((error) => console.log(error));
 
 const Reminder = mongoose.model("Reminder", {
 	name: String,
