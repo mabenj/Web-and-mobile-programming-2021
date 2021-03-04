@@ -1,0 +1,16 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: #b2d0da;
+}
+
+button {
+	border: none;
+	padding: 10px;
+}
+
+.delete-btn {
+	background-color: #ff9999;
+}
