@@ -1,12 +1,11 @@
 import React from "react";
 
-const Reminder = ({ reminder, deletionHandler }) => {
+export default function Reminder({ reminder, deletionHandler }) {
 	const timestamp = new Date(reminder.timestamp);
-	const timestampString = `${timestamp.toLocaleString()}`;
 	return (
 		<tr>
 			<td className="timestamp">
-				<i>{timestampString}</i>
+				<i>{timestamp.toLocaleString()}</i>
 			</td>
 			<td style={{ width: "300px" }}>
 				<p style={{ wordBreak: "break-all" }}>{reminder.name}</p>
@@ -18,6 +17,4 @@ const Reminder = ({ reminder, deletionHandler }) => {
 			</td>
 		</tr>
 	);
-};
-
-export default Reminder;
+}

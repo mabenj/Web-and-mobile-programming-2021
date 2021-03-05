@@ -40,7 +40,7 @@ app.get("/api/reminders/:id", (request, response) => {
 });
 
 app.delete("/api/reminders/:id", (request, response) => {
-	Reminder.findByIdAndRemove(request.params.id)
+	Reminder.findByIdAndRemove(request.params.id, { useFindAndModify: false })
 		.then((result) => {
 			if (result) {
 				response.status(204).end();

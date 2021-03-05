@@ -1,6 +1,6 @@
 import React from "react";
 import reminderService from "../services/reminderService";
-import Reminder from "./Reminder";
+import Reminders from "./Reminders";
 import AddReminderForm from "./AddReminderForm";
 
 class App extends React.Component {
@@ -9,7 +9,7 @@ class App extends React.Component {
 		this.state = {
 			reminders: [],
 			newName: "",
-			newDate: ""
+			newDateTime: { date: "", time: "" }
 		};
 	}
 
@@ -28,31 +28,19 @@ class App extends React.Component {
 		}
 		// Post to server
 		reminderService
-			.createReminder(this.state.newName, this.state.newDate)
+			.createReminder(this.state.newName, formatDate(this.state.newDateTime))
 			.then((newReminder) => {
 				// Update state
 				this.setState((prevState) => ({
 					reminders: [...prevState.reminders, newReminder],
 					newName: "",
-					newDate: ""
+					newDateTime: { date: "", time: "" }
 				}));
 				console.log(`Reminder with id: ${newReminder.id} successfully created`);
 			})
 			.catch((reason) => {
 				console.log(`Could not create a reminder: ${reason}`);
 			});
-	};
-
-	onNameChange = (e) => {
-		this.setState({
-			newName: e.target.value
-		});
-	};
-
-	onDateChange = (e) => {
-		this.setState({
-			newDate: e.target.value
-		});
 	};
 
 	onReminderDelete = (id) => {
@@ -78,22 +66,20 @@ class App extends React.Component {
 				<h2>Lisää muistutus</h2>
 				<AddReminderForm
 					submitHandler={this.addReminder}
-					nameChangeHandler={this.onNameChange}
-					dateChangeHandler={this.onDateChange}
+					setName={(name) => this.setState({ newName: name })}
+					setDateTime={(dateTime) => this.setState({ newDateTime: dateTime })}
 					nameValue={this.state.newName}
-					dateValue={this.state.newDate}
+					dateTimeValue={this.state.newDateTime}
 				/>
 				<h2>Muistutukset</h2>
-				<table>
-					<tbody>
-						{this.state.reminders.map((reminder) => (
-							<Reminder key={reminder.id} reminder={reminder} deletionHandler={this.onReminderDelete} />
-						))}
-					</tbody>
-				</table>
+				<Reminders reminders={this.state.reminders} deletionHandler={this.onReminderDelete} />
 			</div>
 		);
 	}
 }
+
+const formatDate = (dateTime) => {
+	return dateTime.date ? new Date(`${dateTime.date}T${dateTime.time || "00:00:00"}`) : new Date();
+};
 
 export default App;

@@ -9,11 +9,9 @@ const getAllReminders = () => {
 };
 
 const createReminder = (name, date) => {
-	const timestamp = Date.parse(date);
-	const timestampDate = isNaN(timestamp) ? new Date() : new Date(timestamp);
 	const reminderData = {
 		name: name,
-		timestamp: timestampDate.toISOString()
+		timestamp: date.toISOString()
 	};
 	return axios.post(REMINDERS_API_URL, reminderData).then((response) => {
 		return response.data;

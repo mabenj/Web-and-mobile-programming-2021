@@ -1,6 +1,14 @@
 import React from "react";
 
-const AddReminderForm = ({ submitHandler, nameChangeHandler, dateChangeHandler, nameValue, dateValue }) => {
+export default function AddReminderForm({ submitHandler, setName, setDateTime, nameValue, dateTimeValue }) {
+	const onDateChange = (e) => {
+		setDateTime({ date: e.target.value, time: dateTimeValue.time });
+	};
+
+	const onTimeChange = (e) => {
+		setDateTime({ date: dateTimeValue.date, time: e.target.value });
+	};
+
 	return (
 		<form onSubmit={submitHandler}>
 			<table>
@@ -8,13 +16,19 @@ const AddReminderForm = ({ submitHandler, nameChangeHandler, dateChangeHandler, 
 					<tr>
 						<td>Aihe</td>
 						<td>
-							<input value={nameValue} onChange={nameChangeHandler} />
+							<input
+								value={nameValue}
+								onChange={(e) => setName(e.target.value)}
+								placeholder="Osta makkaraa..."
+								required
+							/>
 						</td>
 					</tr>
 					<tr>
-						<td>Päivämäärä</td>
+						<td>Päivämäärä ja aika</td>
 						<td>
-							<input value={dateValue} onChange={dateChangeHandler} type="datetime-local" />
+							<input value={dateTimeValue.date} onChange={onDateChange} type="date" style={{ marginRight: "20px" }} />
+							<input value={dateTimeValue.time} onChange={onTimeChange} type="time" />
 						</td>
 					</tr>
 					<tr>
@@ -26,6 +40,4 @@ const AddReminderForm = ({ submitHandler, nameChangeHandler, dateChangeHandler, 
 			</table>
 		</form>
 	);
-};
-
-export default AddReminderForm;
+}
