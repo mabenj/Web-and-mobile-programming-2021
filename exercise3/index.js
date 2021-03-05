@@ -3,7 +3,7 @@ const cors = require("cors");
 const parser = require("body-parser");
 
 const app = express();
-app.use(express.static("build"));
+app.use(express.static("./client/build"));
 app.use(cors());
 app.use(parser.json());
 
