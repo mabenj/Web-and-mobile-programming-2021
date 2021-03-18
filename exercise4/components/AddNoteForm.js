@@ -1,34 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { Button, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { Alert, TextInput, View } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
-import AsyncStorageService from "../services/AsyncStorageService";
+import NoteStorageService from "../services/NoteStorageService";
 import styles from "../Styles";
 
-export default function AddNoteForm() {
-	const [notes, setNotes] = useState([{ name: "", id: -1 }]);
-	const [newNote, setNewNote] = useState("");
+export default function AddNoteForm({ navigation }) {
+	const [noteName, setNoteName] = useState("");
 
-	useEffect(() => {
-		AsyncStorageService.getNotes().then(setNotes).catch(console.log);
-	}, []);
-
-	const onAddNote = () => {
-		AsyncStorageService.storeNotes([...notes, { name: newNote, id: Math.max(notes.map((note) => note.id)) + 1 }])
-			.then(setNewNote(""))
+	const onAddNote = async () => {
+		const allNotes = await NoteStorageService.getNotes();
+		if (allNotes.some((note) => note.name.toLowerCase() === noteName.toLowerCase())) {
+			Alert.alert("Muistutus on jo olemassa", "Tämä muistutus on jo olemassa! Anna muistutukselle eri nimi.");
+			return;
+		}
+		NoteStorageService.storeNote(noteName)
+			.then((newNote) => {
+				setNoteName("");
+				navigation.navigate("Notes", { newNote });
+			})
 			.catch(console.log);
 	};
 
 	return (
-		<View style={styles.noteInput}>
+		<>
 			<TextInput
-				style={{ flex: 1, color: "#fff" }}
-				onChangeText={setNewNote}
-				value={newNote}
+				style={styles.addNoteInput}
+				onChangeText={setNoteName}
+				value={noteName}
 				onSubmitEditing={onAddNote}
-				placeholder="Kirjota note tähän"
+				placeholder="Kirjoita muistiinpano tähän"
 				placeholderTextColor="#808080"
+				multiline
+				autoFocus
 			/>
-			<Button title="Lisää note" onPress={onAddNote} color={styles.button.color} />
-		</View>
+			<View style={styles.addNoteFooter}>
+				<FontAwesome.Button name="plus" onPress={onAddNote} backgroundColor={styles.addBtn.color}>
+					Lisää
+				</FontAwesome.Button>
+			</View>
+		</>
 	);
 }
